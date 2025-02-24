@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +15,67 @@
         .form-group {
             margin: 20px 0;
         }
+        .column {
+            float: left;
+            width: 45%;
+            padding: 10px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Telecom Customer Churn Prediction</h2>
         <form action="{{ url_for('predict')}}" method="post">
-            <div class="form-group">
-                <label>Tenure (months):</label>
-                <input type="number" name="tenure" required>
-            </div>
-            <div class="form-group">
-                <label>Monthly Charges:</label>
-                <input type="number" name="monthly_charges" required>
+            <div class="row">
+                <div class="column">
+                    <div class="form-group">
+                        <label>Tenure (months):</label>
+                        <input type="number" name="tenure" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Charges:</label>
+                        <input type="number" name="monthly_charges" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Charges:</label>
+                        <input type="number" name="total_charges" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senior Citizen (0/1):</label>
+                        <input type="number" min="0" max="1" name="senior_citizen" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Partner (0/1):</label>
+                        <input type="number" min="0" max="1" name="partner" required>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="form-group">
+                        <label>Dependents (0/1):</label>
+                        <input type="number" min="0" max="1" name="dependents" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Service (0/1):</label>
+                        <input type="number" min="0" max="1" name="phone_service" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Multiple Lines (0/1):</label>
+                        <input type="number" min="0" max="1" name="multiple_lines" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Internet Service (0-No,1-DSL,2-Fiber):</label>
+                        <input type="number" min="0" max="2" name="internet_service" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Online Security (0/1):</label>
+                        <input type="number" min="0" max="1" name="online_security" required>
+                    </div>
+                </div>
             </div>
             <button type="submit">Predict Churn</button>
         </form>
